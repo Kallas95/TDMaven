@@ -15,4 +15,49 @@
      <scope>test</scope>
     </dependency>
   </dependencies>
-</project>
+
+
+<scope>test</scope>
+     </dependency>
+   </dependencies>
+
+   <build>
+    <finalName>marelease</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <version>2.9</version>
+        <configuration>
+          <downloadSources>true</downloadSources>
+          <downloadJavadocs>false</downloadJavadocs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          
+          <excludes>
+          <exclude>**/log4j.properties</exclude>
+          </excludes>
+          <archive>
+          <manifest>
+            <mainClass>td.App</mainClass>
+          </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+ </project>
